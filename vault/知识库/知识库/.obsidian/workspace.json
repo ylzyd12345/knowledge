@@ -1,0 +1,224 @@
+{
+  "main": {
+    "id": "00a9c6977e89f557",
+    "type": "split",
+    "children": [
+      {
+        "id": "d2cf1c7887df33c0",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "64affa8adcf76c39",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "wiki/Index.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Index"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "5f30c91b2d6d77bf",
+    "type": "split",
+    "children": [
+      {
+        "id": "5668bb2b1aea51ed",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1a345b9ed52cb083",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "9cc3782749042673",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "24d17d0977e39838",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 321.49999618530273
+  },
+  "right": {
+    "id": "29fc7a7187f4241e",
+    "type": "split",
+    "children": [
+      {
+        "id": "f18b28f1e045307f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "db98d8c5cf781504",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "反向链接"
+            }
+          },
+          {
+            "id": "e312624ed9879921",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "欢迎.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "欢迎 的出链列表"
+            }
+          },
+          {
+            "id": "9088336c4c479d71",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "21bcef6f5346ecaa",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
+            "id": "013538bccdc2a81c",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "欢迎.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "欢迎 的大纲"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "bases:新建数据库": false
+    }
+  },
+  "active": "64affa8adcf76c39",
+  "lastOpenFiles": [
+    "wiki/java/java.html",
+    "wiki/java/java.md",
+    "wiki/索引.md",
+    "wiki/Index.md",
+    "wiki/java/目录.md",
+    "wiki/java/第二阶段：核心 API 与常用类/集合框架.md",
+    "wiki/java/第二阶段：核心 API 与常用类/泛型.md",
+    "wiki/java/第二阶段：核心 API 与常用类/包装类与自动装箱.md",
+    "wiki/java/第五阶段：Java 生态与主流框架/容器化与部署.md",
+    "wiki/java/第五阶段：Java 生态与主流框架/消息中间件.md",
+    "wiki/java/第一阶段：Java 基础入门/Java概述.md",
+    "wiki/java/第一阶段：Java 基础入门/方法.md",
+    "wiki/java/第一阶段：Java 基础入门/访问控制修饰符.md",
+    "wiki/java/第一阶段：Java 基础入门/基本语法.md",
+    "wiki/java/第一阶段：Java 基础入门/面向对象编程（OOP）.md",
+    "wiki/java/第一阶段：Java 基础入门/数组.md",
+    "output/模板.md",
+    "output/规则.md",
+    "output/评分标准.md",
+    "JVM.md",
+    "wiki/索引.html",
+    "wiki/java/目录.html",
+    "wiki/java",
+    "wiki/java/第六阶段：性能与架构/安全与加密.md",
+    "wiki/java/第六阶段：性能与架构/高并发与缓存.md",
+    "wiki/java/第六阶段：性能与架构/分布式系统基础.md",
+    "wiki/java/第六阶段：性能与架构/并发编程深入.md",
+    "wiki/java/第六阶段：性能与架构/JVM性能调优.md",
+    "wiki/java/第六阶段：性能与架构",
+    "wiki/java/第五阶段：Java 生态与主流框架/Spring Cloud.md",
+    "wiki/java/第五阶段：Java 生态与主流框架",
+    "wiki/java/第四阶段：实用工具与开发进阶",
+    "wiki/java/第三阶段：Java 高级特性",
+    "wiki/java/第二阶段：核心 API 与常用类",
+    "wiki/java/第一阶段：Java 基础入门",
+    "output"
+  ]
+}

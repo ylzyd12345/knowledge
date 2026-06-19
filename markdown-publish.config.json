@@ -1,7 +1,10 @@
 {
-  "siteName": "My Notes",
-  "siteDescription": "Personal knowledge base",
-  "siteLang": "en",
+  "siteName": "Kevin's 笔记",
+  "siteDescription": "Kevin's Personal knowledge base",
+  "siteLang": "zh",
+  "siteUrl": "https://ylzyd12345.github.io/knowledge",
+  "siteFooter": "Kevin's",
+  "baseHref": "/knowledge/",
   "vaultDir": "vault",
   "buildMode": "full",
   "out": "dist"
