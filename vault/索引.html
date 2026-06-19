@@ -1,0 +1,458 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Java 后端架构师知识库 · 完整索引</title>
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  background: #0a0e1a; color: #e0e6f0; min-height: 100vh;
+  overflow-x: hidden; line-height: 1.7;
+}
+.bg-layer { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+.bg-gradient {
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 10%, rgba(56,100,220,0.15) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 80% 80%, rgba(139,92,246,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 50% 50%, rgba(6,182,212,0.08) 0%, transparent 60%),
+    linear-gradient(180deg, #0a0e1a 0%, #0d1225 50%, #0a0e1a 100%);
+}
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(56,100,220,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56,100,220,0.06) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 20%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 20%, transparent 70%);
+}
+.particles { overflow: hidden; }
+.particle {
+  position: absolute; width: 3px; height: 3px;
+  background: rgba(99,179,237,0.6); border-radius: 50%;
+  animation: floatUp linear infinite;
+  box-shadow: 0 0 6px rgba(99,179,237,0.4);
+}
+@keyframes floatUp {
+  0% { transform: translateY(100vh) scale(0); opacity: 0; }
+  10% { opacity: 1; } 90% { opacity: 1; }
+  100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+}
+
+.content { position: relative; z-index: 1; max-width: 1060px; margin: 0 auto; padding: 60px 24px 80px; }
+
+/* Hero */
+.hero { text-align: center; padding: 80px 0 60px; position: relative; }
+.hero::before {
+  content: ''; position: absolute; top: 50%; left: 50%;
+  width: 600px; height: 600px; transform: translate(-50%,-50%);
+  background: radial-gradient(circle, rgba(56,100,220,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.badge {
+  display: inline-block; padding: 6px 20px; border-radius: 999px;
+  font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase;
+  background: rgba(56,100,220,0.12); border: 1px solid rgba(56,100,220,0.3);
+  color: #7db4f5; margin-bottom: 28px; backdrop-filter: blur(8px);
+}
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; line-height: 1.25;
+  background: linear-gradient(135deg, #e0e6f0 0%, #7db4f5 40%, #a78bfa 70%, #06b6d4 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text; margin-bottom: 16px;
+}
+.hero .subtitle { font-size: 1.15rem; color: #8892a8; }
+.hero .subtitle span { color: #7db4f5; font-weight: 600; }
+.divider {
+  width: 80px; height: 3px; margin: 48px auto; border-radius: 2px;
+  background: linear-gradient(90deg, #3864dc, #8b5cf6, #06b6d4);
+}
+
+/* Stats */
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 64px; }
+.stat-card {
+  background: rgba(15,20,40,0.6); border: 1px solid rgba(56,100,220,0.15);
+  border-radius: 16px; padding: 24px 16px; text-align: center;
+  backdrop-filter: blur(12px); transition: all 0.35s ease;
+}
+.stat-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(56,100,220,0.12); }
+.stat-num {
+  font-size: 2rem; font-weight: 800;
+  background: linear-gradient(135deg, #7db4f5, #a78bfa);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.stat-label { font-size: 0.82rem; color: #6b7a94; margin-top: 4px; }
+
+/* Section Title */
+.section-title {
+  font-size: 1.5rem; font-weight: 700; margin-bottom: 32px;
+  color: #c8d6e5; display: flex; align-items: center; gap: 14px;
+}
+.section-title .icon {
+  width: 40px; height: 40px; border-radius: 12px; display: flex;
+  align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;
+  background: linear-gradient(135deg, rgba(56,100,220,0.15), rgba(139,92,246,0.15));
+  border: 1px solid rgba(56,100,220,0.2);
+}
+.section-title span {
+  background: linear-gradient(90deg, #7db4f5, #a78bfa);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+
+/* Category Section */
+.category { margin-bottom: 56px; }
+
+/* Table */
+.idx-table {
+  width: 100%; border-collapse: collapse;
+  background: rgba(15,20,40,0.55); border-radius: 16px; overflow: hidden;
+  backdrop-filter: blur(12px); border: 1px solid rgba(56,100,220,0.12);
+}
+.idx-table th {
+  text-align: left; padding: 14px 24px; font-size: 0.8rem; font-weight: 700;
+  color: #7db4f5; background: rgba(56,100,220,0.08);
+  border-bottom: 1px solid rgba(56,100,220,0.15); letter-spacing: 1px; text-transform: uppercase;
+}
+.idx-table td {
+  padding: 13px 24px; font-size: 0.88rem; color: #8892a8;
+  border-bottom: 1px solid rgba(56,100,220,0.06); transition: all 0.2s ease;
+}
+.idx-table tr:last-child td { border-bottom: none; }
+.idx-table tr:hover td { background: rgba(56,100,220,0.04); color: #c8d6e5; }
+.idx-table .name { color: #c8d6e5; font-weight: 600; white-space: nowrap; }
+
+/* Nav pills */
+.nav-pills {
+  display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;
+  margin-bottom: 48px; position: sticky; top: 0; z-index: 10;
+  padding: 12px 0; background: rgba(10,14,26,0.85); backdrop-filter: blur(12px);
+}
+.nav-pill {
+  padding: 6px 18px; border-radius: 999px; font-size: 0.8rem; font-weight: 600;
+  color: #8892a8; background: rgba(15,20,40,0.6); border: 1px solid rgba(56,100,220,0.12);
+  cursor: pointer; transition: all 0.3s ease; text-decoration: none; white-space: nowrap;
+}
+.nav-pill:hover, .nav-pill.active {
+  color: #7db4f5; border-color: rgba(56,100,220,0.4);
+  background: rgba(56,100,220,0.1); box-shadow: 0 0 12px rgba(56,100,220,0.15);
+}
+
+/* Footer */
+.footer {
+  text-align: center; padding: 40px 0 20px; color: #4a5568;
+  font-size: 0.8rem; border-top: 1px solid rgba(56,100,220,0.08);
+}
+
+/* Animations */
+.fade-up { opacity: 0; transform: translateY(30px); transition: all 0.7s ease; }
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+
+/* Search */
+.search-box {
+  max-width: 480px; margin: 0 auto 40px; position: relative;
+}
+.search-box input {
+  width: 100%; padding: 14px 24px 14px 48px; border-radius: 999px;
+  background: rgba(15,20,40,0.6); border: 1px solid rgba(56,100,220,0.2);
+  color: #e0e6f0; font-size: 0.95rem; outline: none;
+  backdrop-filter: blur(12px); transition: all 0.3s ease;
+}
+.search-box input:focus { border-color: rgba(56,100,220,0.5); box-shadow: 0 0 20px rgba(56,100,220,0.1); }
+.search-box input::placeholder { color: #4a5568; }
+.search-box .search-icon {
+  position: absolute; left: 18px; top: 50%; transform: translateY(-50%);
+  color: #4a5568; font-size: 1.1rem; pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .hero h1 { font-size: 1.8rem; }
+  .idx-table th, .idx-table td { padding: 10px 14px; font-size: 0.82rem; }
+  .idx-table .name { white-space: normal; }
+  .nav-pills { gap: 6px; }
+  .nav-pill { padding: 5px 14px; font-size: 0.75rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="bg-layer bg-gradient"></div>
+<div class="bg-layer bg-grid"></div>
+<div class="bg-layer particles" id="particles"></div>
+
+<div class="content">
+
+  <section class="hero fade-up">
+    <div class="badge">Full Index</div>
+    <h1>Java 后端架构师知识库</h1>
+    <p class="subtitle">完整目录索引 · <span>80+ 篇核心概念文章</span></p>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Stats -->
+  <section class="fade-up">
+    <div class="stats">
+      <div class="stat-card"><div class="stat-num">80+</div><div class="stat-label">核心文章</div></div>
+      <div class="stat-card"><div class="stat-num">11</div><div class="stat-label">知识分类</div></div>
+      <div class="stat-card"><div class="stat-num">∞</div><div class="stat-label">双向链接</div></div>
+      <div class="stat-card"><div class="stat-num">A→Z</div><div class="stat-label">入门到架构</div></div>
+    </div>
+  </section>
+
+  <!-- Search -->
+  <section class="fade-up">
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜索文章名称或摘要..." oninput="filterArticles(this.value)">
+    </div>
+  </section>
+
+  <!-- Nav Pills -->
+  <nav class="nav-pills fade-up">
+    <a class="nav-pill active" href="#cat-1">语言基础</a>
+    <a class="nav-pill" href="#cat-2">框架与微服务</a>
+    <a class="nav-pill" href="#cat-3">数据存储</a>
+    <a class="nav-pill" href="#cat-4">架构设计</a>
+    <a class="nav-pill" href="#cat-5">云原生</a>
+    <a class="nav-pill" href="#cat-6">DevOps</a>
+    <a class="nav-pill" href="#cat-7">项目管理</a>
+    <a class="nav-pill" href="#cat-8">软技能</a>
+    <a class="nav-pill" href="#cat-9">合规安全</a>
+    <a class="nav-pill" href="#cat-10">通信协议</a>
+    <a class="nav-pill" href="#cat-11">案例分析</a>
+  </nav>
+
+  <!-- Cat 1 -->
+  <section class="category fade-up" id="cat-1">
+    <h2 class="section-title"><div class="icon">☕</div> <span>Java 语言与核心基础</span></h2>
+    <table class="idx-table"><thead><tr><th>文章名称</th><th>一句话摘要</th></tr></thead><tbody>
+      <tr><td class="name">Java</td><td>Java 核心知识体系：JVM、语法、集合、并发、IO、反射等基础与进阶</td></tr>
+      <tr><td class="name">JVM内存模型</td><td>堆、栈、方法区等运行时数据区域划分</td></tr>
+      <tr><td class="name">垃圾回收（GC）</td><td>可达性分析、GC 算法与常用收集器（G1、ZGC）</td></tr>
+      <tr><td class="name">多线程与并发</td><td>线程创建、同步机制及线程状态管理</td></tr>
+      <tr><td class="name">线程池</td><td>Executor 框架与 ThreadPoolExecutor 参数调优</td></tr>
+      <tr><td class="name">并发容器</td><td>线程安全的 ConcurrentHashMap 等容器</td></tr>
+      <tr><td class="name">集合框架</td><td>List、Set、Map 体系及常用实现类</td></tr>
+      <tr><td class="name">异常处理</td><td>try-catch-finally、异常体系与自定义异常</td></tr>
+      <tr><td class="name">泛型</td><td>泛型类、方法、通配符及类型擦除</td></tr>
+      <tr><td class="name">反射与注解</td><td>动态类加载、元编程与注解处理器</td></tr>
+      <tr><td class="name">Lambda与Stream</td><td>函数式编程与流式操作集合数据</td></tr>
+      <tr><td class="name">IO与NIO</td><td>字节流、字符流、Channel/Buffer/Selector</td></tr>
+      <tr><td class="name">Java模块化系统</td><td>Java 9+ 模块定义与依赖管理</td></tr>
+      <tr><td class="name">Java新特性演进</td><td>各版本 LTS（8/11/17/21）核心特性：记录类、密封类、虚拟线程</td></tr>
+    </tbody></table>
+  </section>
+
+  <!-- Cat 2 -->
+  <section class="category fade-up" id="cat-2">
+    <h2 class="section-title"><div class="icon">🌿</div> <span>主流框架与微服务生态</span></h2>
+    <table class="idx-table"><thead><tr><th>文章名称</th><th>一句话摘要</th></tr></thead><tbody>
+      <tr><td class="name">Spring Framework</td><td>IoC、DI、AOP 核心容器与 Bean 生命周期</td></tr>
+      <tr><td class="name">Spring Boot</td><td>自动配置、起步依赖、Actuator 与嵌入式容器</td></tr>
+      <tr><td class="name">Spring MVC</td><td>RESTful 控制器、视图解析与拦截器</td></tr>
+      <tr><td class="name">Spring Data JPA</td><td>ORM 映射、Repository 接口与查询方法</td></tr>
+      <tr><td class="name">MyBatis</td><td>SQL 映射、动态 SQL 与 Mapper 接口</td></tr>
+      <tr><td class="name">Spring Cloud</td><td>微服务治理全家桶：服务发现、配置、网关、熔断</td></tr>
+      <tr><td class="name">Spring Cloud Alibaba</td><td>阿里微服务组件：Nacos、Sentinel、Seata、RocketMQ</td></tr>
+      <tr><td class="name">Nacos</td><td>服务注册发现与配置管理平台</td></tr>
+      <tr><td class="name">Sentinel</td><td>流量控制、熔断降级、系统自适应保护</td></tr>
+      <tr><td class="name">Seata</td><td>分布式事务解决方案（AT/TCC/Saga）</td></tr>
+      <tr><td class="name">API网关深度</td><td>网关功能对比（Gateway/Kong/APISIX）、高可用与BFF模式</td></tr>
+      <tr><td class="name">服务网格（Service Mesh）</td><td>Istio/Linkerd 原理，与 Spring Cloud 共存及流量管理</td></tr>
+      <tr><td class="name">Dubbo</td><td>高性能 Java RPC 框架，服务治理与扩展</td></tr>
+      <tr><td class="name">gRPC与Protobuf</td><td>高性能跨语言 RPC 协议，Java 集成实践</td></tr>
+    </tbody></table>
+  </section>
+
+  <!-- Cat 3 -->
+  <section class="category fade-up" id="cat-3">
+    <h2 class="section-title"><div class="icon">💾</div> <span>数据存储与处理</span></h2>
+    <table class="idx-table"><thead><tr><th>文章名称</th><th>一句话摘要</th></tr></thead><tbody>
+      <tr><td class="name">MySQL</td><td>存储引擎、事务、索引、SQL优化、主从复制与高可用方案</td></tr>
+      <tr><td class="name">数据库架构设计</td><td>分库分表、读写分离、数据迁移、冷热分离与分布式ID</td></tr>
+      <tr><td class="name">PostgreSQL</td><td>高级特性：JSON、数组、全文检索、并发控制</td></tr>
+      <tr><td class="name">NoSQL数据库选型</td><td>MongoDB、Cassandra、HBase 适用场景对比</td></tr>
+      <tr><td class="name">Redis</td><td>数据结构、持久化、哨兵/集群、缓存设计、分布式锁</td></tr>
+      <tr><td class="name">Elasticsearch</td><td>倒排索引、全文搜索、聚合分析、集群架构与性能调优</td></tr>
+      <tr><td class="name">图数据库（Neo4j）</td><td>图模型、Cypher 查询，适用社交/推荐/知识图谱</td></tr>
+      <tr><td class="name">消息中间件架构</td><td>RocketMQ vs Kafka vs RabbitMQ 选型、可靠性、EDA模式</td></tr>
+      <tr><td class="name">RocketMQ</td><td>事务消息、顺序消息、死信队列、高可用集群</td></tr>
+      <tr><td class="name">Kafka</td><td>高吞吐日志/事件流平台，分区、复制、Exactly-Once语义</td></tr>
+      <tr><td class="name">数据架构与数据治理</td><td>数仓分层、数据湖、CDC、元数据与数据质量</td></tr>
+      <tr><td class="name">大数据集成</td><td>Spark、Flink 与 Java 后端交互场景（实时计算、ETL）</td></tr>
+    </tbody></table>
+  </section>
+
+  <!-- Cat 4 -->
+  <section class="category fade-up" id="cat-4">
+    <h2 class="section-title"><div class="icon">🏗️</div> <span>架构设计核心</span></h2>
+    <table class="idx-table"><thead><tr><th>文章名称</th><th>一句话摘要</th></tr></thead><tbody>
+      <tr><td class="name">系统架构设计原则</td><td>架构演进、高可用/高并发/高扩展设计、AKF/CAP/BASE</td></tr>
+      <tr><td class="name">高并发系统设计</td><td>分层并发控制、秒杀系统、异步与缓存策略</td></tr>
+      <tr><td class="name">高可用架构</td><td>冗余/故障转移、超时/重试/熔断/降级、异地多活</td></tr>
+      <tr><td class="name">微服务架构深度</td><td>拆分原则、服务治理、灰度发布、边车模式</td></tr>
+      <tr><td class="name">分布式事务</td><td>2PC、TCC、SAGA、事务消息方案对比与Seata实践</td></tr>
+      <tr><td class="name">可观测性体系</td><td>Metrics/Logging/Tracing 三大支柱，Prometheus+Grafana、ELK、Jaeger</td></tr>
+      <tr><td class="name">安全架构设计</td><td>纵深防御、OAuth2/OIDC、JWT、RBAC、零信任、数据加密</td></tr>
+      <tr><td class="name">性能工程</td><td>性能测试流程、分析工具（Arthas/JProfiler）、全链路压测</td></tr>
+      <tr><td class="name">领域驱动设计（DDD）</td><td>战略/战术设计、限界上下文、聚合根、事件风暴</td></tr>
+      <tr><td class="name">架构风格对比</td><td>单体/微服务/事件驱动/CQRS/Hexagonal 适用场景</td></tr>
+    </tbody></table>
+  </section>
+
+  <!-- Cat 5 -->
+  <section class="category fade-up" id="cat-5">
+    <h2 class="section-title"><div class="icon">☁️</div> <span>云原生与基础设施</span></h2>
+    <table class="idx-table"><thead><tr><th>文章名称</th><th>一句话摘要</th></tr></thead><tbody>
+      <tr><td class="name">容器化（Docker）</td><td>镜像、容器、Dockerfile 最佳实践、多阶段构建</td></tr>
+      <tr><td class="name">Kubernetes（K8s）</td><td>Pod/Service/Deployment、Helm、Operator、资源调度</td></tr>
+      <tr><td class="name">CI/CD流水线</td><td>Jenkins/GitLab CI/GitHub Actions、蓝绿/金丝雀发布</td></tr>
+      <tr><td class="name">云平台与多云策略</td><td>AWS/Azure/阿里云核心服务、混合云/多云架构</td></tr>
+      <tr><td class="name">Serverless</td><td>FaaS（Lambda/FC）、冷启动优化、适用场景</td></tr>
+      <tr><td class="name">边缘计算与IoT</td><td>云边协同、EdgeX Foundry、Java轻量化（Quarkus）</td></tr>
+      <tr><td class="name">基础设施即代码（IaC）</td><td>Terraform、Pulumi、CloudFormation 管理云资源</td></tr>
+      <tr><td class="name">FinOps与成本管理</td><td>云成本优化、资源标签、预留实例、成本可视化</td></tr>
+    </tbody></table>
+  </section>
+
+  <!-- Cat 6 -->
+  <section class="category fade-up" id="cat-6">
+    <h2 class="section-title"><div class="icon">⚙️</div> <span>DevOps与工程效能</span></h2>
+    <table class="idx-table"><thead><tr><th>文章名称</th><th>一句话摘要</th></tr></thead><tbody>
+      <tr><td class="name">DevOps与持续交付</td><td>CI/CD 流水线、质量门禁、制品管理</td></tr>
+      <tr><td class="name">代码质量与工程效能</td><td>编码规范、SonarQube、DORA指标、开发者体验</td></tr>
+      <tr><td class="name">测试体系</td><td>单元/集成/契约/E2E/性能/安全测试全覆盖</td></tr>
+      <tr><td class="name">Git高级技巧</td><td>GitFlow/Trunk Based、rebase/bisect、Conventional Commits</td></tr>
+      <tr><td class="name">Linux与Shell脚本</td><td>常用命令、性能诊断（top/strace）、脚本自动化</td></tr>
+      <tr><td class="name">API设计与调试</td><td>RESTful 规范、OpenAPI、Postman/cURL、Mock服务</td></tr>
+      <tr><td class="name">日志与监控工具链</td><td>ELK/Loki、Prometheus、Grafana、AlertManager</td></tr>
+    </tbody></table>
+  </section>
+
+  <!-- Cat 7 -->
+  <section class="category fade-up" id="cat-7">
+    <h2 class="section-title"><div class="icon">📋</div> <span>项目管理与团队协作</span></h2>
+    <table class="idx-table"><thead><tr><th>文章名称</th><th>一句话摘要</th></tr></thead><tbody>
+      <tr><td class="name">敏捷开发与Scrum</td><td>角色、工件、活动（计划/站会/评审/回顾）</td></tr>
+      <tr><td class="name">需求管理与优先级</td><td>MoSCoW、Kano模型、变更流程、用户故事与验收标准</td></tr>
+      <tr><td class="name">技术债务管理</td><td>分类、识别（SonarQube）、偿还策略与量化</td></tr>
+      <tr><td class="name">项目风险管理</td><td>风险识别/评估矩阵/应对策略</td></tr>
+      <tr><td class="name">交付与发布管理</td><td>语义化版本、环境划分、灰度发布、Feature Toggle</td></tr>
+      <tr><td class="name">团队建设与人员培养</td><td>招聘、Onboarding、Code Review文化、OKR/KPI</td></tr>
+      <tr><td class="name">领导力与决策</td><td>ADR、冲突管理、向上管理、决策框架</td></tr>
+      <tr><td class="name">技术沟通与影响力</td><td>受众分层沟通、高效会议、演讲与书面技巧</td></tr>
+      <tr><td class="name">复盘文化</td><td>故障复盘（Blameless）、5 Whys、行动项追踪</td></tr>
+      <tr><td class="name">开源治理与知识产权</td><td>开源协议、SBOM、依赖漏洞扫描、内部开源</td></tr>
+    </tbody></table>
+  </section>
+
+  <!-- Cat 8 -->
+  <section class="category fade-up" id="cat-8">
+    <h2 class="section-title"><div class="icon">🧠</div> <span>架构师软技能与补充专题</span></h2>
+    <table class="idx-table"><thead><tr><th>文章名称</th><th>一句话摘要</th></tr></thead><tbody>
+      <tr><td class="name">商业思维与ROI</td><td>技术决策与商业目标对齐，成本效益分析</td></tr>
+      <tr><td class="name">谈判与冲突解决</td><td>资源协商、跨团队协作、平衡技术债与业务需求</td></tr>
+      <tr><td class="name">导师与技术教练</td><td>设计培训路径、引导技术选型、知识传承</td></tr>
+      <tr><td class="name">行业趋势与视野</td><td>ThoughtWorks技术雷达、Gartner曲线解读</td></tr>
+      <tr><td class="name">技术文档与知识管理</td><td>ADR、RFC、Wiki组织、知识库建设</td></tr>
+      <tr><td class="name">效率工具集</td><td>IntelliJ IDEA、Obsidian、Draw.io/PlantUML、终端美化</td></tr>
+      <tr><td class="name">时间管理与精力管理</td><td>GTD、番茄工作法、深度工作、预防职业倦怠</td></tr>
+    </tbody></table>
+  </section>
+
+  <!-- Cat 9 -->
+  <section class="category fade-up" id="cat-9">
+    <h2 class="section-title"><div class="icon">🔒</div> <span>合规、安全与审计</span></h2>
+    <table class="idx-table"><thead><tr><th>文章名称</th><th>一句话摘要</th></tr></thead><tbody>
+      <tr><td class="name">合规与审计架构</td><td>GDPR、等保2.0、PCI-DSS 合规要求，审计日志不可篡改</td></tr>
+      <tr><td class="name">数据隐私与脱敏</td><td>动态/静态脱敏、差分隐私、匿名化、数据最小化</td></tr>
+      <tr><td class="name">IAM深度</td><td>SSO（OAuth2/SAML）、RBAC/ABAC、JWT 安全实践</td></tr>
+      <tr><td class="name">安全左移</td><td>SAST/DAST、依赖扫描、容器镜像扫描、STRIDE威胁建模</td></tr>
+      <tr><td class="name">零信任架构</td><td>BeyondCorp、mTLS、身份感知代理，微服务零信任实践</td></tr>
+    </tbody></table>
+  </section>
+
+  <!-- Cat 10 -->
+  <section class="category fade-up" id="cat-10">
+    <h2 class="section-title"><div class="icon">📡</div> <span>通信与协议</span></h2>
+    <table class="idx-table"><thead><tr><th>文章名称</th><th>一句话摘要</th></tr></thead><tbody>
+      <tr><td class="name">HTTP/2与HTTP/3</td><td>多路复用、服务器推送、QUIC 协议优势</td></tr>
+      <tr><td class="name">WebSocket与RSocket</td><td>全双工通信、背压机制、RSocket 四种交互模式</td></tr>
+      <tr><td class="name">RPC框架对比</td><td>Dubbo、gRPC、Thrift、Feign 性能与适用场景</td></tr>
+    </tbody></table>
+  </section>
+
+  <!-- Cat 11 -->
+  <section class="category fade-up" id="cat-11">
+    <h2 class="section-title"><div class="icon">📖</div> <span>架构演进与案例分析</span></h2>
+    <table class="idx-table"><thead><tr><th>文章名称</th><th>一句话摘要</th></tr></thead><tbody>
+      <tr><td class="name">架构重构案例</td><td>从单体到微服务的拆分实例，数据迁移策略</td></tr>
+      <tr><td class="name">高并发案例</td><td>秒杀系统设计、排行榜实时计算、计数器防击穿</td></tr>
+      <tr><td class="name">高可用案例</td><td>双活/多活架构、故障注入（Chaos Engineering）演练</td></tr>
+      <tr><td class="name">分布式系统案例</td><td>最终一致性实现、分布式ID生成、分布式调度</td></tr>
+      <tr><td class="name">中台化思考</td><td>业务中台、数据中台、技术中台的实践与误区</td></tr>
+    </tbody></table>
+  </section>
+
+  <footer class="footer">
+    <p>Java 后端架构师知识库 · Obsidian Wiki · 80+ 篇核心概念 · Built with ❤️</p>
+  </footer>
+
+</div>
+
+<script>
+// Particles
+(function(){
+  var c=document.getElementById('particles');
+  for(var i=0;i<30;i++){
+    var p=document.createElement('div');p.className='particle';
+    p.style.left=Math.random()*100+'%';
+    p.style.animationDuration=(8+Math.random()*12)+'s';
+    p.style.animationDelay=(Math.random()*10)+'s';
+    p.style.width=p.style.height=(2+Math.random()*3)+'px';
+    c.appendChild(p);
+  }
+})();
+
+// Fade-in
+var obs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
+},{threshold:0.08});
+document.querySelectorAll('.fade-up').forEach(function(el){obs.observe(el);});
+
+// Search filter
+function filterArticles(q){
+  q=q.toLowerCase().trim();
+  document.querySelectorAll('.idx-table tbody tr').forEach(function(tr){
+    var text=tr.textContent.toLowerCase();
+    tr.style.display=(!q||text.indexOf(q)!==-1)?'':'none';
+  });
+  // Hide empty categories
+  document.querySelectorAll('.category').forEach(function(cat){
+    var visible=cat.querySelectorAll('.idx-table tbody tr[style=""], .idx-table tbody tr:not([style])');
+    var hasVisible=false;
+    cat.querySelectorAll('.idx-table tbody tr').forEach(function(tr){
+      if(tr.style.display!=='none') hasVisible=true;
+    });
+    cat.style.display=hasVisible?'':'none';
+  });
+}
+
+// Active nav pill on scroll
+var sections=document.querySelectorAll('.category');
+var pills=document.querySelectorAll('.nav-pill');
+window.addEventListener('scroll',function(){
+  var current='';
+  sections.forEach(function(s){
+    if(window.scrollY>=s.offsetTop-120) current=s.id;
+  });
+  pills.forEach(function(p){
+    p.classList.toggle('active',p.getAttribute('href')==='#'+current);
+  });
+});
+</script>
+</body>
+</html>
