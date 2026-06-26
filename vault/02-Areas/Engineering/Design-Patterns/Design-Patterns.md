@@ -1,0 +1,130 @@
+---
+title: "Design-Patterns"
+tags: [engineering, design-patterns]
+stage: 4
+status: "permanent"
+type: "地图型"
+summary: "Design Patterns"
+related: []
+---
+
+---
+phase: 第四阶段：实用工具与开发进阶
+type: 地图型
+summary: 创建型、结构型、行为型经典设计模式。
+related:
+  - 面向对象编程（OOP）
+  - 重构
+  - Spring Framework
+---
+
+# 设计模式
+
+> 创建型、结构型、行为型经典设计模式。
+
+本文建立 GoF 23 种模式的全景分类与选型思路。具体实现细节结合面向对象与 Spring 源码阅读。
+
+---
+
+## 概念定义
+
+**设计模式**是面向对象设计中反复出现的问题的**可复用解决方案**，非代码框架，而是一种沟通与设计的词汇表。GoF 分为三类：
+
+| 类型 | 关注点 | 代表模式 |
+|------|--------|----------|
+| 创建型 | 对象创建 | 单例、工厂、建造者、原型、抽象工厂 |
+| 结构型 | 类与对象组合 | 代理、适配器、装饰器、组合、桥接、享元、外观 |
+| 行为型 | 职责分配与算法 | 观察者、策略、模板方法、责任链、命令、状态、迭代器、访问者、中介者、备忘录、解释器 |
+
+---
+
+## 核心原理
+
+### 1. 创建型（概述）
+
+- **单例**：全局唯一实例（枚举、静态内部类、双重检查锁）。
+- **工厂方法 / 抽象工厂**：封装创建逻辑，解耦具体类。
+- **建造者**：分步构建复杂对象（Lombok `@Builder`、StringBuilder）。
+- **原型**：`clone()` 复制对象。
+
+### 2. 结构型（概述）
+
+- **代理**：静态代理、动态代理（JDK、CGLIB）— Spring AOP 核心。
+- **适配器**：兼容旧接口（`InputStreamReader`）。
+- **装饰器**：动态扩展功能（IO 流包装类）。
+- **外观**：子系统统一入口（SLF4J 门面）。
+
+### 3. 行为型（概述）
+
+- **观察者**：事件订阅（Spring `ApplicationEvent`）。
+- **策略**：算法族封装互换（支付渠道、排序策略）。
+- **模板方法**：父类定义骨架子类实现步骤（`AbstractList`）。
+- **责任链**：过滤器链、Servlet Filter、Netty Pipeline。
+
+### 4. 原则
+
+SOLID：单一职责、开闭、里氏替换、接口隔离、依赖倒置。模式是原则的实践载体。
+
+---
+
+## 实际应用
+
+```java
+// 策略模式
+interface Discount { double apply(double price); }
+class VipDiscount implements Discount { ... }
+Map<String, Discount> strategies = Map.of("vip", new VipDiscount());
+
+// 建造者
+User user = User.builder().name("a").age(20).build();
+```
+
+Spring 中大量模式：单例 Bean、工厂 BeanFactory、代理 AOP、模板 JdbcTemplate、观察者事件。
+
+---
+
+## 源码分析
+
+`java.io.InputStream` 装饰器：`FilterInputStream` 包装增强。  
+`Collections.synchronizedList` 装饰器包装同步。  
+`AbstractExecutorService` 模板方法定义 `execute` 提交逻辑。
+
+---
+
+## 面试常见题目
+
+**1. 单例几种写法？**
+
+饿汉、懒汉、双重检查、静态内部类、枚举（推荐防反射）。
+
+**2. 代理模式 JDK 和 CGLIB？**
+
+JDK 基于接口；CGLIB 子类继承，不能代理 final。
+
+**3. 策略与状态模式区别？**
+
+策略由客户端切换；状态随对象内部转换。
+
+**4. 装饰器与代理区别？**
+
+装饰增强自身接口；代理控制访问，常管理生命周期。
+
+**5. 工作中最常用的模式？**
+
+单例、工厂、策略、模板、观察者、代理。
+
+---
+
+## 思维发散
+
+1. 模式滥用导致过度设计；何时停止抽象。
+2. 函数式与模式：策略 ≈ 函数参数。
+3. 领域驱动设计与模式在聚合根上的应用。
+
+---
+
+## 相关概念（待扩展）
+
+- 面向对象编程（OOP）— 继承与多态基础
+- 重构 — 代码改善手法
+- Spring Framework — IoC、AOP 中的模式实践

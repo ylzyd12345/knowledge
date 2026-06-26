@@ -1,0 +1,138 @@
+---
+title: "Annotations"
+tags: [java/advanced, annotations]
+stage: 3
+status: "permanent"
+type: "机制型"
+summary: "Annotations"
+related: []
+---
+
+---
+phase: 第三阶段：Java 高级特性
+type: 机制型
+summary: 内置注解、元注解与自定义注解处理器。
+related:
+  - 反射
+  - APT（注解处理工具）
+  - Spring Framework
+---
+
+# 注解
+
+> 内置注解、元注解与自定义注解处理器。
+
+本文讲解 Java 注解定义、元注解与运行时/编译期处理。Spring 注解体系见 Spring Framework 专题。
+
+---
+
+## 概念定义
+
+**注解（Annotation）** 为程序元素（类、方法、字段等）附加元数据，本身不是程序逻辑。注解信息可被编译器、APT 或运行期反射读取。
+
+---
+
+## 核心原理
+
+### 1. 内置注解
+
+| 注解 | 作用 |
+|------|------|
+| `@Override` | 检查方法重写 |
+| `@Deprecated` | 标记过时 |
+| `@SuppressWarnings` | 抑制编译警告 |
+| `@FunctionalInterface` | 函数式接口检查 |
+| `@SafeVarargs` | 抑制可变参数警告 |
+
+### 2. 元注解
+
+| 元注解 | 作用 |
+|--------|------|
+| `@Target` | 可用位置（TYPE、METHOD、FIELD…） |
+| `@Retention` | SOURCE / CLASS / RUNTIME |
+| `@Documented` | 包含在 JavaDoc |
+| `@Inherited` | 子类继承类上注解 |
+| `@Repeatable` | 可重复注解 |
+
+### 3. 自定义注解
+
+```java
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.METHOD)
+public @interface Log {
+    String value() default "";
+}
+```
+
+### 4. 处理时机
+
+- **SOURCE**：编译后丢弃，如 Lombok（通过 APT 生成代码）
+- **CLASS**：写入字节码，运行时不读
+- **RUNTIME**：反射读取，Spring、JUnit 常用
+
+### 5. 注解处理器（APT）
+
+编译期扫描注解生成代码（如 AutoService、MapStruct）。
+
+---
+
+## 实际应用
+
+```java
+@Log("查询用户")
+public User getUser(Long id) { }
+
+// 运行时切面（概念）
+Aspect around(ProceedingJoinPoint pjp) {
+    Log log = ((Method) pjp.getSignature()).getAnnotation(Log.class);
+    // ...
+}
+```
+
+---
+
+## 源码分析
+
+注解在字节码中以 `RuntimeVisibleAnnotations` 属性存储。`Annotation` 接口动态代理实现：`annotation.annotationType()` 返回注解类型。
+
+Spring `@Component` 等通过 `ClassPathScanningCandidateComponentProvider` 扫描 RUNTIME 注解。
+
+---
+
+## 面试常见题目
+
+**1. 注解生命周期？**
+
+SOURCE、CLASS、RUNTIME。
+
+**2. 元注解作用？**
+
+定义注解的使用规则。
+
+**3. 注解如何生效？**
+
+编译期 APT 生成代码；或运行期反射/AOP 读取。
+
+**4. `@Override` 如何实现检查？**
+
+编译器检查父类方法签名。
+
+**5. Lombok 原理？**
+
+注解 + APT 在编译期生成 getter/构造器等源码。
+
+---
+
+## 思维发散
+
+1. 注解 vs XML 配置在 Spring 中的演进。
+2. Kotlin 注解与 Java 注解互操作。
+3. 编译期注解处理与 IDE 增量编译的兼容性。
+
+---
+
+## 相关概念（待扩展）
+
+- 反射 — 运行时读取注解
+- APT（注解处理工具）— 编译期生成代码
+- Spring Framework — 注解驱动配置

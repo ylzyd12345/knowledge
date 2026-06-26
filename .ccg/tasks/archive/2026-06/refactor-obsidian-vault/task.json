@@ -1,0 +1,12 @@
+{
+  "id": "refactor-obsidian-vault",
+  "title": "重构 Obsidian 知识库目录结构与文件命名",
+  "status": "completed",
+  "complexity": "L",
+  "risk": "medium",
+  "domain": "knowledge-base",
+  "currentPhase": "completed",
+  "nextAction": "archive",
+  "createdAt": "2026-06-26T12:35:00Z",
+  "branch": "main"
+}

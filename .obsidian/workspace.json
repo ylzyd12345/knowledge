@@ -1,0 +1,224 @@
+{
+  "main": {
+    "id": "0d33f5e49aaa72a7",
+    "type": "split",
+    "children": [
+      {
+        "id": "ef2cb684ca73a4ca",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "691a5648789479a5",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "新标签页"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "3886f6b20f1d4b19",
+    "type": "split",
+    "children": [
+      {
+        "id": "2b5e088292bff98c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "63948bb3b834165f",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "5b4cf36d54ff290d",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "96df5a457750f385",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "9457592422964fff",
+    "type": "split",
+    "children": [
+      {
+        "id": "ef9fce0ea28cd52b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "95d8dd6df8e5a3ee",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "vault/知识库/知识库/raw/README.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "README 的反向链接列表"
+            }
+          },
+          {
+            "id": "b8dd2ad13bced8c0",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "vault/知识库/知识库/raw/README.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "README 的出链列表"
+            }
+          },
+          {
+            "id": "efcd1c976f706ea6",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "9bfd2502c0073d9c",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
+            "id": "32881ef34f45f032",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "vault/知识库/知识库/raw/README.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "README 的大纲"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "bases:新建数据库": false
+    }
+  },
+  "active": "63948bb3b834165f",
+  "lastOpenFiles": [
+    "vault/wiki/一、Java 语言与核心基础/java.html",
+    "vault/wiki/索引.html",
+    "vault/wiki/索引.md",
+    "vault/wiki/一、Java 语言与核心基础",
+    "vault/wiki",
+    "vault/02-Areas/Java-Frameworks/Spring/Spring-Framework.md",
+    "vault/02-Areas/Java-Frameworks/Spring/Spring-MVC.md",
+    "vault/02-Areas/Java-Frameworks/ORM/Spring-Data-JPA.md",
+    "vault/02-Areas/Java-Frameworks/Spring/Spring-Cloud.md",
+    "vault/02-Areas/Java-Frameworks/ORM/MyBatis.md",
+    "vault/02-Areas/Java-Frameworks/Spring/Spring-Boot.md",
+    "vault/02-Areas/Engineering/Tools/Logging-Frameworks.md",
+    "vault/02-Areas/Engineering/Tools/Git.md",
+    "vault/02-Areas/Java-Core/JVM/Performance-Tuning.md",
+    "vault/02-Areas/Java-Core/JVM/Memory-Model.md",
+    "vault/02-Areas/Engineering/Tools/Build-Tools.md",
+    "vault/02-Areas/Java-Core/IO/NIO.md",
+    "vault/02-Areas/Java-Core/IO/Network-Programming.md",
+    "vault/02-Areas/Java-Core/JVM/Garbage-Collection.md",
+    "vault/02-Areas/Java-Core/IO/IO-Streams.md",
+    "vault/02-Areas/Java-Frameworks/Database/JDBC.md",
+    "vault/02-Areas/Engineering/Testing/Unit-Testing.md",
+    "vault/02-Areas/Java-Core/Basics/OOP.md",
+    "vault/02-Areas/Engineering/Design-Patterns/Design-Patterns.md",
+    "vault/02-Areas/Java-Core/Basics/Java-Overview.md",
+    "vault/02-Areas/Java-Core/Basics/Methods.md",
+    "vault/02-Areas/Java-Core/Basics/Exception-Handling.md",
+    "vault/02-Areas/Java-Core/Basics/Basic-Syntax.md",
+    "vault/02-Areas/Java-Core/Concurrency/Multithreading-and-Concurrency.md",
+    "vault/02-Areas/Java-Frameworks/ORM",
+    "vault/02-Areas/Java-Frameworks/Spring",
+    "vault/02-Areas/Java-Core/JVM",
+    "vault/02-Areas/Engineering/Tools",
+    "vault/02-Areas/Java-Frameworks/Database",
+    "vault/02-Areas/Engineering/Testing",
+    "vault/02-Areas/Java-Core/IO",
+    "vault/00-Inbox/imgs/全.png",
+    "vault/00-Inbox/imgs/obsidian.png",
+    "vault/00-Inbox/imgs/java.png"
+  ]
+}

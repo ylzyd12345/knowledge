@@ -1,0 +1,3 @@
+display_name: Knowledge Wiki
+short_description: Generate and validate Obsidian knowledge-base articles
+default_prompt: Use $knowledge-wiki to generate or update a wiki article

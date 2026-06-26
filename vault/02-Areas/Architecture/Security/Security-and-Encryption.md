@@ -1,0 +1,130 @@
+---
+title: "Security-and-Encryption"
+tags: [architecture, security, encryption]
+stage: 6
+status: "permanent"
+type: "机制型"
+summary: "Security and Encryption"
+related: []
+---
+
+---
+phase: 第六阶段：性能与架构
+type: 机制型
+summary: 加密算法、数字签名与 Spring Security。
+related:
+  - 网络编程
+  - 身份认证与授权
+  - Spring Framework
+---
+
+# 安全与加密
+
+> 加密算法、数字签名与 Spring Security。
+
+本文介绍加密基础与 Spring Security 入门。OAuth2、零信任见安全架构专题。
+
+---
+
+## 概念定义
+
+**应用安全**涵盖传输加密、存储加密、身份认证、授权、审计。Java 提供 `javax.crypto`、`java.security`；Web 安全常用 Spring Security。
+
+---
+
+## 核心原理
+
+### 1. 对称加密
+
+同一密钥加解密：AES（推荐）、3DES。速度快，适合大数据加密；密钥分发困难。
+
+### 2. 非对称加密
+
+公钥加密、私钥解密：RSA、ECC。用于密钥交换、数字签名。
+
+### 3. 数字签名与证书
+
+签名：私钥签名、公钥验证，保证完整性与身份。  
+**证书**：CA 签发绑定公钥与身份；HTTPS 依赖证书链验证。
+
+### 4. HTTPS
+
+TLS 握手协商密钥，HTTP 内容加密传输。证书校验防中间人。
+
+### 5. 哈希
+
+SHA-256、BCrypt（密码加盐哈希，不可逆）。勿用 MD5/SHA1 存密码。
+
+### 6. Spring Security
+
+过滤器链：`SecurityFilterChain` 配置认证、授权、CSRF、会话。  
+支持表单登录、JWT、OAuth2 Resource Server。
+
+---
+
+## 实际应用
+
+```java
+// BCrypt 密码编码
+PasswordEncoder encoder = new BCryptPasswordEncoder();
+String hash = encoder.encode(rawPassword);
+
+// Spring Security 配置
+@Bean
+SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    http.authorizeHttpRequests(auth -> auth
+        .requestMatchers("/public/**").permitAll()
+        .anyRequest().authenticated())
+        .oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt);
+    return http.build();
+}
+```
+
+敏感配置用环境变量或 Secret 管理，勿硬编码密钥。
+
+---
+
+## 源码分析
+
+`BCryptPasswordEncoder` 使用 BCrypt 算法随机 salt。  
+Spring Security `FilterChainProxy` 按顺序执行安全过滤器。
+
+---
+
+## 面试常见题目
+
+**1. 对称和非对称加密区别？**
+
+见上；HTTPS 混合使用（非对称交换对称密钥）。
+
+**2. 如何存储用户密码？**
+
+加盐哈希（BCrypt/Argon2），禁止明文与可逆加密。
+
+**3. JWT 结构？**
+
+Header.Payload.Signature；注意过期与密钥保护。
+
+**4. CSRF 和 XSS？**
+
+CSRF：跨站伪造请求，Token 防护；XSS：脚本注入，转义与 CSP。
+
+**5. Spring Security 核心组件？**
+
+Authentication、Authorization、SecurityContext、FilterChain。
+
+---
+
+## 思维发散
+
+1. 国密算法 SM2/SM4 在金融场景的应用。
+2. 密钥管理（KMS、HSM）与轮换。
+3. OWASP Top 10 与 Java Web 防护清单。
+
+---
+
+## 相关概念（待扩展）
+
+- 网络编程 — TLS 与 Socket
+- 身份认证与授权 — OAuth2/OIDC
+- Spring Framework — 安全过滤器集成
