@@ -12,9 +12,9 @@
 | **`_Config/rules.md`** | 目录映射、文章结构、类型与深度、链接策略、工作流、禁止项 |
 | **`_Config/scoring.md`** | 八维加权评分、三轮迭代、放行门槛（综合分 ≥ 8.0） |
 | **`_Templates/template.md`** | 本文件：Markdown 骨架 + AI 生成提示词 |
-| **`02-Areas/Master-Plan.md`** | 全局知识库蓝图（80+ 篇规划，11 大分类） |
-| **`02-Areas/Java-Learning-Path.md`** | Java 学习路径 MOC |
-| **`02-Areas/Java-Core/Java-Core-MOC.md`** | Java 核心 MOC |
+| **`01-Index/Master-Plan.md`** | 全局知识库蓝图（80+ 篇规划，11 大分类） |
+| **`01-Index/Java-Learning-Path.md`** | Java 学习路径 MOC |
+| **`01-Index/Java-Core-MOC.md`** | Java 核心 MOC |
 
 ---
 
@@ -107,8 +107,8 @@ related:
 知识库路径：vault/02-Areas/
 规则文档：vault/_Config/rules.md
 评分文档：vault/_Config/scoring.md
-全局规划：vault/02-Areas/Master-Plan.md
-学习路径：vault/02-Areas/Java-Learning-Path.md
+全局规划：vault/01-Index/Master-Plan.md
+学习路径：vault/01-Index/Java-Learning-Path.md
 
 【硬性要求】
 1. 目录：按领域/子领域组织（见 _Config/rules.md 第 1.2 节）
@@ -193,7 +193,7 @@ tags: [master-plan, knowledge-base, blueprint]
 - 新文章生成后同步更新对应分类的状态
 \`\`\`
 
-### Java-Learning-Path.md 结构
+### 01-Index/ MOC 结构
 
 ```markdown
 ---

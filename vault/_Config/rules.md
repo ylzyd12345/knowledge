@@ -18,12 +18,11 @@ vault/
 │   ├── java/           # Java 相关零散笔记
 │   ├── structure/      # 架构设计、部署方案草稿
 │   └── imgs/           # 临时截图（确认后移入 _Attachments/）
+├── 01-Index/           # 索引/MOC/规划文档
+│   ├── Master-Plan.md  # 全局知识库蓝图（94 篇规划）
+│   ├── Java-Learning-Path.md  # Java 学习路径
+│   └── Java-Core-MOC.md       # Java 核心 MOC
 ├── 02-Areas/           # 核心知识领域（永久笔记）
-│   ├── Java-Core/      # Java 语言核心
-│   ├── Java-Frameworks/ # Spring、MyBatis 等框架
-│   ├── Architecture/    # 分布式、高并发、中间件、安全
-│   ├── DevOps/          # 容器化、部署
-│   └── Engineering/     # 设计模式、测试、工具
 ├── _Config/            # 规则、评分标准等配置
 ├── _Templates/         # 模板文件
 ├── _Attachments/       # 图片、PDF 等附件（正式引用）
@@ -64,14 +63,14 @@ vault/
 
 ### 1.4 学习路径索引（MOC）
 
-- 路径：`02-Areas/Java-Learning-Path.md`
+- 路径：`01-Index/Java-Learning-Path.md`
 - 内容：按学习阶段列出全部文章链接 + 一句话摘要。
 - 使用 Obsidian `[[双链]]` 组织，是知识库的导航入口。
 
 ### 1.5 大纲源文件
 
-- **全局规划**：`02-Areas/Master-Plan.md`（80+ 篇完整知识库蓝图，含 11 大分类）
-- 结构定义：`02-Areas/Java-Core/Java-Core-MOC.md`（Java 核心 MOC）
+- **全局规划**：`01-Index/Master-Plan.md`（80+ 篇完整知识库蓝图，含 11 大分类）
+- 结构定义：`01-Index/Java-Core-MOC.md`（Java 核心 MOC）
 - 学习路径：`02-Areas/Java-Learning-Path.md`（全局学习路径）
 - 各 MOC 文件为**写作契约**的补充说明。
 - `wiki/索引.md` 为旧版规划索引，内容已迁入 `Master-Plan.md`，待确认后删除。
@@ -374,8 +373,8 @@ related:                             # 相关概念，纯文本
 | `_Config/rules.md` | 本文件：结构、类型、链接、工作流 |
 | `_Config/scoring.md` | 迭代打分与放行门槛 |
 | `_Templates/template.md` | AI 生成提示词与快速索引 |
-| `02-Areas/Master-Plan.md` | 全局知识库蓝图（80+ 篇规划） |
-| `02-Areas/Java-Learning-Path.md` | Java 学习路径 MOC |
-| `02-Areas/Java-Core/Java-Core-MOC.md` | Java 核心 MOC |
+| `01-Index/Master-Plan.md` | 全局知识库蓝图（80+ 篇规划） |
+| `01-Index/Java-Learning-Path.md` | Java 学习路径 MOC |
+| `01-Index/Java-Core-MOC.md` | Java 核心 MOC |
 
 规则变更时同步更新版本号与 `_Templates/template.md` 中的提示词。

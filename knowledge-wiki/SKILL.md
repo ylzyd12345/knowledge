@@ -37,7 +37,7 @@ Always read these before generating or updating articles:
 1. `vault/_Config/rules.md` — Directory mapping, article structure (8 sections), type system, link strategy, workflow, prohibitions. The single source of truth for structure.
 2. `vault/_Config/scoring.md` — 8-dimension weighted scoring (10 points), 3-round internal iteration, release threshold (>=8.0, depth/edge >=7.0).
 3. `vault/_Templates/template.md` — Markdown skeleton + AI generation prompts.
-4. `vault/02-Areas/Master-Plan.md` — Global blueprint with 94 articles, 11 categories, and status tracking.
+4. `vault/01-Index/Master-Plan.md` — Global blueprint with 94 articles, 11 categories, and status tracking.
 
 ## Article Types
 
@@ -83,7 +83,7 @@ Every article contains these `##` sections in order:
 
 ### Single Article Generation
 
-1. Read `Master-Plan.md` to find the target article and its summary.
+1. Read `01-Index/Master-Plan.md` to find the target article and its summary.
 2. Determine `type` and `stage` from `rules.md` section 4.3.
 3. Read the benchmark article `02-Areas/Java-Core/Basics/Java-Overview.md` (map-type benchmark).
 4. Generate 3 internal rounds:
@@ -93,16 +93,16 @@ Every article contains these `##` sections in order:
 5. Score each round using `scoring.md` dimensions. Only output the highest-scoring version.
 6. Release threshold: comprehensive score >=8.0, depth adaptability >=7.0, edge clarity >=7.0.
 7. Write to `02-Areas/{domain}/{subdomain}/{FileName}.md` (English Kebab-case).
-8. Update `Master-Plan.md`: change status to ✅ and fill in the `[[双链]]`.
-9. Update `Java-Learning-Path.md` if the article belongs to the Java learning path.
+8. Update `01-Index/Master-Plan.md`: change status to ✅ and fill in the `[[双链]]`.
+9. Update `01-Index/Java-Learning-Path.md` if the article belongs to the Java learning path.
 
 ### Batch Generation
 
-1. Read `Master-Plan.md`, filter articles with status ⬜.
+1. Read `01-Index/Master-Plan.md`, filter articles with status ⬜.
 2. Generate in category order (categories 一 → 十一) to minimize cross-reference inconsistency.
 3. For each article, follow the single-article workflow above.
 4. After each category, run the quality check script on a sample article.
-5. Update `Master-Plan.md` statistics table after each batch.
+5. Update `01-Index/Master-Plan.md` statistics table after each batch.
 
 ### Quality Check
 
@@ -116,7 +116,7 @@ Run `scripts/check_article.js <article-path>` to validate:
 
 Run `scripts/update_progress.js` to:
 - Scan `02-Areas/` for all `.md` files
-- Compare against `Master-Plan.md` entries
+- Compare against `01-Index/Master-Plan.md` entries
 - Update status markers and statistics table
 
 ### Inbox Processing
